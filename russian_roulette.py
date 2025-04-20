@@ -22,7 +22,7 @@ def pc_loss_message():
     """
     Prints a message when the PC loses.
     """
-    print("PC: Well played, you win this round! Want to play again?")
+    print("PC: Well played, you win this round!")
     # You can customize this message as desired.
 
 def play_roulette(chambers=6):
