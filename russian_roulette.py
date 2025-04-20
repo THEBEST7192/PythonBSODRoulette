@@ -6,6 +6,7 @@ import random
 import sys
 import ctypes
 import time
+import signal
 
 def trigger_blue_screen():
     """
@@ -64,7 +65,16 @@ def play_roulette(chambers=6):
 
 
 if __name__ == '__main__':
-    try:
-        play_roulette()
-    except KeyboardInterrupt:
+    # Setup Ctrl-C handler with cooldown
+    def handler(signum, frame):
         print("\nGame interrupted. Goodbye.")
+        print("\nExiting in 3 seconds...")
+        time.sleep(3)
+        sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
+    # Replay loop
+    while True:
+        play_roulette()
+        again = input("Play again? [Y/n]: ").strip().lower()
+        if again == 'n':
+            break
