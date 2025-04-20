@@ -43,7 +43,7 @@ def play_roulette(chambers=6):
         else:
             choice = input("Pull the trigger? [Enter/q]: ").strip().lower()
             if choice == 'q':
-                print("You backed out. Stay safe!")
+                print("The only winning move is not to play.")
                 break
 
         # Check bullet
